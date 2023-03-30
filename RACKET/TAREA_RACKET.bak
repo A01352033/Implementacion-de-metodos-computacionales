@@ -1,0 +1,28 @@
+;; 1. Farenheit a celcius. 
+(define fahrenheit-to-celsius
+  (lambda (f)
+    (/ (* 5 (- f 32)) 9)))
+
+;; 2. Detector de signo
+(define sign
+  (lambda (n)
+    (cond
+      ((positive? n) 1)
+      ((negative? n) -1)
+      (else 0))))
+
+;; 3.
+(define roots
+  (lambda (a b c)
+    (let ((discriminant (- (* b b) (* 4 a c))))
+      (if (< discriminant 0)
+          "No real roots"
+          (/ (+ (- b) (sqrt discriminant)) (* 2 a))))))
+
+;; 4. Calcular el BMI
+(define BMI
+  (lambda (h w)
+    (/ (w) (* h h))
+    (cond
+      ((< BMI 20) "Underweight")
+      

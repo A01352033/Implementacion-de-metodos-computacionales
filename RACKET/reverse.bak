@@ -1,0 +1,7 @@
+#lang racket
+(define reverse
+  (lambda (lst)
+    (cond
+      [(empty? lst) '()]
+      [else (deep-redux fn (cdr lst))
+            (cons (car lst) '())])))

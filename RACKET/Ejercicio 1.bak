@@ -1,0 +1,6 @@
+;;Ejercicio 1
+
+;; Attendees: number -> number
+(define attendees
+ (lambda (ticket-price)
+  (+ 120
