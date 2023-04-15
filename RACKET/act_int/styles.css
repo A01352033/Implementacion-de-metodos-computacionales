@@ -1,0 +1,51 @@
+body {
+    background-color: #202020;
+    font-family: Consolas, monospace;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding-left: 4rem;
+}
+
+pre {
+    margin: 0;
+}
+
+span {
+    display: inline-block;
+}
+
+.strings {
+    color: #029f0f;
+}
+
+.keywords {
+    color: #ca49b4;
+}
+
+.operators {
+    color: #bd8b03;
+}
+
+.comment {
+    color: #787777;
+}
+
+.identifier {
+    color: #00d9aa;
+}
+
+.reals {
+    color: #835700;
+}
+
+.separator {
+    color: #ab3131;
+}
+
+.system {
+    color: #0c10cb;
+}
+
+.number {
+    color: #0004d9;
+}
