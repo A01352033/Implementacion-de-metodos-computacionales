@@ -248,20 +248,24 @@
           (set! list-line (append list-line (list word)))
           (set! word '())))]))
 
-  (define tokens (map (lambda (x) (string-join x "")) list-line))
   (define (categorize-tokens tokens)
-    (define (loop tokens open-block-comment)
-      (cond
-        [(null? tokens) '()]
-        [(and (string=? (car tokens) "/*") (not open-block-comment))
-         (append (list (categorize-token (car tokens))) (loop (cdr tokens) #t))]
-        [(and (string=? (car tokens) "*/") open-block-comment)
-         (append (list (categorize-token (car tokens))) (loop (cdr tokens) #f))]
-        [open-block-comment (append (list (replace-comment (car tokens))) (loop (cdr tokens) #t))]
-        [(string=? (car tokens) "//")
-         (append (list (replace-comment (car tokens))) (loop (cdr tokens) #f))]
-        [else (append (list (categorize-token (car tokens))) (loop (cdr tokens) #f))]))
-    (loop tokens open-block-comment))
+  (define (loop tokens open-block-comment result)
+    (cond
+      [(null? tokens) (reverse result)]
+      [(and (string=? (car tokens) "/*") (not open-block-comment))
+       (loop (cdr tokens) #t (cons (categorize-token (car tokens)) result))]
+      [(and (string=? (car tokens) "*/") open-block-comment)
+       (loop (cdr tokens) #f (cons (categorize-token (car tokens)) result))]
+      [open-block-comment
+       (loop (cdr tokens) #t (cons (replace-comment (car tokens)) result))]
+      [(string=? (car tokens) "//")
+       (loop (cdr tokens) #f (cons (replace-comment (car tokens)) result))]
+      [else
+       (loop (cdr tokens) #f (cons (categorize-token (car tokens)) result))]))
+  (loop tokens #f '()))
+
+(define tokens (map (λ (x) (string-join x "")) list-line))
+
 
   (categorize-tokens tokens))
 
