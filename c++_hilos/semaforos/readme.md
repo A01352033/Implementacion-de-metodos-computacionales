@@ -1,3 +1,6 @@
+A01334318 Erik Cabrera
+A01352033 Manuel Villalpando
+
 El problema consiste en estimar el valor de Pi utilizando la técnica de Monte Carlo, que implica la generación de puntos aleatorios dentro de un círculo inscrito en un cuadrado. Para ello, se debe crear un programa que genere múltiples hilos para que generen un número determinado de puntos aleatorios, contando cuántos de ellos se encuentran dentro del círculo. La suma de los puntos en el círculo de todos los hilos será utilizada para estimar el valor de Pi.
 
 La solución consistiría en crear un hilo principal que actúe como coordinador y cree múltiples hilos para generar los puntos aleatorios. Cada hilo generado deberá contar los puntos que se encuentran dentro del círculo inscrito en el cuadrado, utilizando para ello la fórmula matemática para determinar si un punto se encuentra dentro del círculo (x^2 + y^2 <= 1). Estos hilos deberán almacenar la suma de los puntos dentro del círculo en una variable global compartida. Al final de la ejecución de los hilos, el hilo principal calculará el valor de Pi utilizando la fórmula mencionada en el enunciado y el número total de puntos generados por todos los hilos. Es importante asegurar que el acceso a la variable compartida se realice de manera segura utilizando, por ejemplo, un mutex.

@@ -1,3 +1,6 @@
+A01334318 Erik Cabrera
+A01352033 Manuel Villalpando
+
 El problema consiste en sincronizar los hilos de los estudiantes y el hilo de entrega de pizza, asegurándose de que ningún estudiante tome un trozo de pizza que ya ha sido tomado por otro estudiante, y de que sólo un estudiante llame a la pizzería a la vez. Si un estudiante descubre que la pizza se ha acabado, el estudiante se va a dormir hasta que llegue otra pizza. El primer estudiante que descubre que el grupo no tiene pizza llama a la pizzería “All Night Long” para pedir otra pizza antes de irse a dormir.
 
 Para resolver este problema, se pueden utilizar semáforos o mutexes. En mi solución, utilicé la librería semaphore para crear dos semáforos: uno para asegurarme de que sólo un estudiante tome un trozo de pizza a la vez, y otro para asegurarme de que sólo un estudiante llame a la pizzería a la vez. La función sem_wait se utiliza para tomar un semáforo, mientras que la función sem_post se utiliza para liberarlo.
