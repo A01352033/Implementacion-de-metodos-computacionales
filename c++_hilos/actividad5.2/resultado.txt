@@ -1,0 +1,9 @@
+Manuel Villalpando A01352033
+Erik Cabrera A01334318
+
+
+Suma de primos: 838596693108
+Tiempo secuencial: 2.473 segundos
+
+Suma de primos: 838596693108
+Tiempo paralelo: 0.865 segundos
